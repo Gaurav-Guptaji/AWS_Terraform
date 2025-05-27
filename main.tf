@@ -10,7 +10,7 @@ module "vpc" {
 
 module "s3" {
   source      = "./modules/s3"
-  bucket_name = "my-terraform-bucket-example"
+  bucket_name = "gaurav-aws-terraform-bucket"
 }
 module "subnet" {
   source            = "./modules/subnet"
@@ -23,7 +23,7 @@ module "subnet" {
 # Add EC2 after VPC and subnet exist
 module "ec2" {
   source      = "./modules/ec2"
-  ami         = "ami-abc123"
+  ami         = "ami-0c02fb55956c7d316"
   instance_type = "t2.micro"
   subnet_id   = module.subnet.subnet_id  # <- Subnet must exist first
   name        = "web-server"
